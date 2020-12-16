@@ -1,0 +1,428 @@
+#include <iostream>
+#include <unistd.h>
+
+using namespace std;
+
+void judul();
+void menu();
+void microwave();
+void kompor();
+void rice_cooker();
+void toaster();
+void air_fryer();
+
+int main (){
+	int opsi;
+	
+	judul();
+	menu();
+	
+	cout<<"PILIH PROGRAM YANG INGIN DIJALANKAN : ";
+	cin>>opsi;
+	cout<<endl;
+	
+	switch (opsi){
+		case 1 :
+		microwave();
+		break;
+			
+		case 2 :
+		kompor();
+		break;
+			
+		case 3 :
+		rice_cooker();
+		break;
+			
+		case 4 :
+		toaster();
+		break;
+			
+		case 5 :
+		air_fryer();
+		break;
+	}
+	
+}
+
+//Putra Adhli Falah
+void judul(){
+	cout<<endl;
+	cout<<"||======================================||"<<endl;
+	cout<<"||PROGRAM SMART KITCHEN                 ||"<<endl;
+	cout<<"||KELOMPOK 5 : Ainur Ravi               ||"<<endl;
+	cout<<"||             Putra Adhli F            ||"<<endl;
+	cout<<"||             Olyvia Maria K           ||"<<endl;
+	cout<<"||             Reza Amalia P            ||"<<endl;
+	cout<<"||             Muhammad Dhaffa          ||"<<endl;
+	cout<<"||======================================||\n"<<endl;
+}
+
+void menu(){
+	cout<<"FASILITAS SMART KITCHEN :"<<endl;
+	cout<<"1. MICROWAVE"<<endl;
+	cout<<"2. KOMPOR"<<endl;
+	cout<<"3. RICE COOKER"<<endl;
+	cout<<"4. TOASTER"<<endl;
+	cout<<"5. AIR FRYER"<<endl;
+}
+
+//Putra Adhli Falah
+void microwave(){
+	int pilih;
+	float suhu, waktu, menit;
+	cout<<"ANDA MENGGUNAKAN MICROWAVE"<<endl;
+	cout<<"Fitur yang tersedia dalam microwave : "<<endl;
+	cout<<"~ Pengatur Suhu"<<endl;
+	cout<<"~ Timer untuk mematikan microwave"<<endl;
+
+	cout<<"Masukkan besar suhu yang diinginkan (dalam derajat celcius) : ";
+	cin>>suhu;
+
+	cout<<"Masukkan waktu (dalam menit) : ";
+	cin>>menit;
+	
+	cout<<endl;
+	cout<<"Microwave mengatur suhu ke "<<suhu<<" derajat celcius"<<endl;
+	
+	waktu=menit*60;
+	cout<<"Microwave akan dimatikan dalam "<<menit<<" menit"<<endl;
+		for (waktu; waktu>=0; waktu--){
+			cout<<waktu<<"detik"<<endl;
+			sleep(1);
+		}
+		cout<<"Microwave telah dimatikan"<<endl;
+}
+
+//Ainur Ravi
+void kompor(){
+	cout<<"ANDA MENGGUNAKAN KOMPOR"<<endl;
+	float i, a, b, s;
+	
+	cout<<"Masukkan waktu anda memasak (Menit): ";
+	cin>>a;
+		cout<<"1.api kecil"<<endl;
+		cout<<"2.api sedang"<<endl;
+		cout<<"3.api besar"<<endl;
+	cout<<"ukuran api= ";
+	cin>>s;
+	if(s==1){
+		cout<<"api kecil";
+	}else if(s==2){
+		cout<<"api sedang";
+	}else if(s==3){
+		cout<<"api besar";
+	}
+	b=a*60;
+	
+	cout<<" Mengitung mundur dalam "<<a<<" menit"<<endl;
+	for(i=b;i>=0;i--)
+	{
+	    cout<<i<<" detik"<<endl;
+	    sleep(1);
+	    
+	}
+	cout<<"Kompor telah dimatikan"<<endl;
+}
+
+//Reza Amalia Putri
+void rice_cooker(){
+	cout<<"ANDA MENGGUNAKAN RICE COOKER"<<endl;
+	int mode, food, heating, re_input, opsi, timer, a, b, c;
+
+	cout<<"===== rice cooker  ====="<<"\n";
+	cout<<"Fitur yang tersedia dalam Smart Toaster: "<<"\n";
+	cout<<"1. Mode Cooking "<<"\n";
+	cout<<"2. Food settings "<<"\n";
+	cout<<"3. heating levels "<<"\n";
+	
+	cout<<"\n\n---- 1. Mode Cooking ----"<<"\n";
+	cout<<"Silakan pilih keadaan makanan Anda: "<<"\n";
+	cout<<"1. Reheat "<<"\n";
+	cout<<"2. Fresh "<<"\n";
+	cout<<"Masukkan nomor input: ";
+	cin >> mode;
+
+	switch(mode){
+	    	case 1: 
+					cout<<"Anda memilih mode   : Reheat";
+					break;
+			case 2: 
+					cout<<"Anda memilih mode   : Fresh";
+	        		break;
+			default: 
+					cout<<"Anda tidak memilih mode apapun "<<"\n";
+					cout<<"---- Cancel Program ---- "<<"\n";
+					goto final;		
+			}
+
+	  	a = mode * 60;
+		cout<<"\n\n\t======== Waktu memasak ditambahkan: " << a << " detik ========= "<<"\n";
+
+	cout<<"\n\n\n---- 2. Food Settings ----"<<"\n";
+	cout<<"Silakan pilih jenis makanan yang akan di panaskan "<<"\n";
+	cout<<"1. nasi "<<"\n";
+	cout<<"2. bubur "<<"\n";
+	cout<<"3. nasi goreng "<<"\n";
+	cout<<"4. tumis "<<"\n";
+	cout<<"5. merebus sup "<<"\n";
+	
+	re_input:
+			cout << "Masukkan nomor input: ";
+			cin  >> food;
+			switch(food){
+						case 1: 
+								cout<<"Anda memilih        : nasi";
+								break;
+						case 2: 
+								cout<<"Anda memilih        : bubur";
+								break;
+						case 3: 
+								cout<<"Anda memilih        : nasi goreng ";
+								break;
+						case 4: 
+								cout<<"Anda memilih        : tumis";
+								break;
+						case 5: 
+								cout<<"Anda memilih        : tumis";
+								break;
+						default: 
+								cout<<"Maaf inputan nomor yang Anda masukkan salah "<<"\n";
+								cout<<"Silakan input kembali nomor input yang benar "<<"\n";
+								goto re_input;		
+						}
+				
+ 	  b = food * 50;
+	  cout<<"\n\n\t ======== Waktu pemanasan ditambahkan: " << b << " detik ========= "<<"\n";
+
+	  cout<<"\n\n\n---- 3. Heating Levels ----"<<"\n";
+	  cout<<"Silakan pilih tingkat kecoklatan: "<<"\n";
+	  cout<<"Level pemanasan       Akumulasi Waktu pemanasan "<<"\n";
+	  cout<<"Level 1 ditambahkan 15 detik "<<"\n";
+	  cout<<"Level 2 ditambahkan 30 detik "<<"\n";
+	  opsi:
+	  cout << "Pilih level pemanasan: ";
+	  cin  >> heating;
+  
+		switch(heating){
+					case 1: 
+							cout<<"Anda memilih\t\t : Level 1 "<<"\n";
+							break;
+					case 2: 
+							cout<<"Anda memilih\t\t : Level 2 "<<"\n";
+							break;
+					default: 
+							cout<<"Maaf inputan nomor yang Anda masukkan salah "<<"\n";
+							cout<<"Silakan input kembali nomor input yang benar "<<"\n";
+							goto opsi;		
+					}
+
+	  c = heating * 120;
+	  cout<<"\n\n\t ======== Waktu pemanasan ditambahkan: " << b <<  " detik ======== "<<"\n";
+	
+	
+	  cout << "Jadi jenis mode yang Anda pilih: " << mode <<"\n";
+	  cout << "Jadi jenis makanan yang Anda pilih: " << food <<"\n";
+	  cout << "Jadi tingkatan level yang Anda pilih: " << heating <<"\n" <<"\n";
+
+		  	timer = a + b + c;
+			cout << "Mengitung mundur dalam "<< timer <<" detik"<<"\n";
+			for(int i=timer;i>=0;i--)
+			{
+			    cout<<i<<" detik"<<"\n";
+			    sleep(1);
+			}
+
+	final:
+	cout<<"---- Rice Cooker Dimatikan ---- "<<"\n";
+}
+
+//Olyvia Maria Kalangi
+void toaster(){
+	cout<<"ANDA MENGGUNAKAN TOASTER"<<endl;
+	int mode, food, Brown, re_input, opsi, timer, nomor,a,b,c;
+
+    cout<<"=============================== \n";
+	cout<<"===\t Smart Toaster  \t===\n";
+	cout<<"=============================== \n\n";
+	cout<<"Fitur yang tersedia dalam Smart Toaster: \n";
+	cout<<"1. Mode Toasting \n";
+	cout<<"2. Food settings \n";
+	cout<<"3. Browning Levels \n";
+	
+	cout<<"\n\n\n--==--== 1. Mode Toasting ==--==--\n\n";
+	cout<<"Silakan pilih keadaan makanan Anda: \n";
+	cout<<"\t-->1. Reheat \n";
+	cout<<"\t-->2. Fresh \n";
+	cout<<"\t-->3. Frozen \n";
+	cout<<"Masukkan nomor input: ";
+	cin >> mode;
+
+	switch(mode){
+	    	case 1: 
+					cout<<"Anda memilih mode   : Reheat";
+					break;
+			case 2: 
+					cout<<"Anda memilih mode   : Fresh";
+	        		break;
+			case 3: 
+					cout<<"Anda memilih mode   : Frozen";
+					break;
+			default: 
+					cout<<"\n\nAnda tidak memilih mode apapun \n";
+					cout<<"\n\n\t\t--==--== Cancel Program ==--==-- \n";
+					goto final;		
+			}
+
+	  	a = mode * 30;
+		cout<<"\n\n ======== Waktu memanggang ditambahkan: " << a << " detik ========= \n";
+
+	cout<<"\n\n\n--==--== 2. Food Settings ==--==--\n\n";
+	cout<<"Silakan pilih jenis makanan yang akan di toasting\n";
+	cout<<"\t-->1. Breads [Roti Gandum, Roti Tawar, Roti Ragi] \n";
+	cout<<"\t-->2. Bagel \n";
+	cout<<"\t-->3. Waffle \n";
+	cout<<"\t-->4. Toaster Patries\n";
+	
+	re_input:
+			cout << "Masukkan nomor input: ";
+			cin  >> food;
+			switch(food){
+						case 1: 
+								cout<<"Anda memilih        : Breads [Roti Gandum, Roti Tawar, Roti Ragi]";
+								break;
+						case 2: 
+								cout<<"Anda memilih        : Bagel";
+								break;
+						case 3: 
+								cout<<"Anda memilih        : Waffle";
+								break;
+						case 4: 
+								cout<<"Anda memilih        : Toaster Patries";
+								break;
+						default: 
+								cout<<"Maaf inputan nomor yang Anda masukkan salah \n";
+								cout<<"Silakan input kembali nomor input yang benar \n";
+								goto re_input;		
+						}
+				
+ 	  b = food * 20;
+	  cout<<"\n\n ======== Waktu memanggang ditambahkan: " << b << " detik ========= \n";
+
+	  cout<<"\n\n\n--==--== 3. Browning Levels ==--==--\n\n";
+	  cout<<"\tSilakan pilih tingkat kecoklatan: \n";
+	  cout<<"Level kecoklatan       Akumulasi Waktu Panggangan\n";
+	  cout<<"\tLevel 1\t\t\t\t ditambahkan 15 detik\n";
+	  cout<<"\tLevel 2\t\t\t\t ditambahkan 30 detik\n";
+	  cout<<"\tLevel 3\t\t\t\t ditambahkan 45 detik\n";
+	  cout<<"\tLevel 4\t\t\t\t ditambahkan 60 detik\n";
+	  cout<<"\tLevel 5\t\t\t\t ditambahkan 90 detik\n";
+	  opsi:
+	  cout << "Pilih level kecoklatan: ";
+	  cin  >> Brown;
+  
+		switch(Brown){
+					case 1: 
+							cout<<"Anda memilih\t\t : Level 1 \n";
+							break;
+					case 2: 
+							cout<<"Anda memilih\t\t : Level 2 \n";
+							break;
+					case 3: 
+							cout<<"Anda memilih\t\t : Level 3 \n";
+							break;
+					case 4: 
+							cout<<"Anda memilih\t\t : Level 4 \n";
+							break;
+			    	case 5: 
+							cout<<"Anda memilih\t\t : Level 5 \n";
+							break;
+					default: 
+							cout<<"Maaf inputan nomor yang Anda masukkan salah \n";
+							cout<<"Silakan input kembali nomor input yang benar \n";
+							goto opsi;		
+					}
+
+	  c = Brown * 15;
+	  cout<<" ======== Waktu memanggang ditambahkan: " << b <<  " detik ======== \n\n\n";
+	
+	
+	  cout << "Jadi jenis mode yang Anda pilih: " << mode << '\n';
+	  cout << "Jadi jenis makanan yang Anda pilih: " << food << '\n';
+	  cout << "Jadi tingkatan level yang Anda pilih: " << Brown << '\n' << '\n';
+
+		  	timer = a + b + c;
+			cout << "Mengitung mundur dalam "<< timer <<" detik"<<endl;
+			for(int i=timer;i>=0;i--)
+			{
+			    cout<<i<<" detik"<<endl;
+			    sleep(1);
+			}
+
+	final:
+	cout<<"\t\t--==--== Toaster Dimatikan ==--==-- \n";
+}
+
+//Muhammad Dhaffa
+void air_fryer(){
+	cout<<"ANDA MENGGUNAKAN AIR FRYER"<<endl;
+	int opsi1,waktu,opsi2,padat,panas;
+	
+	cout<<"==========AIR FRYER=========="<<endl;
+	cout<<"Masukkan Jenis Bahan : "<<endl;
+	cout<<"1.Padat "<<endl;
+	cout<<"2.Kental"<<endl;
+	cout<<"3.Cair"<<endl;
+	cin>>opsi1;
+	cout<<"================================================="<<endl;
+	
+	switch(opsi1){
+		case 1:
+			cout<<"Bahan yang anda pilih adalah padat"<<endl;
+			cout<<"Ingin menggunakan minyak?"<<endl;
+			cout<<"1.Ya"<<endl;
+			cout<<"2.Tidak"<<endl;
+			break;
+		case 2:
+			cout<<"Bahan yang anda pilih adalah kental"<<endl;
+			cout<<"Ingin menggunakan minyak?"<<endl;
+			cout<<"1.Ya"<<endl;
+			cout<<"2.Tidak"<<endl;
+			break;
+		case 3:
+			cout<<"Mohon maaf kami masih dalam tahap pengembangan untuk jenis bahan cair"<<endl;
+			break;
+	}
+	cin>>opsi2;
+	cout<<"================================================="<<endl;
+	if(opsi2=1){
+		cout<<"Masukkan Kondisi Bahan :"<<endl;
+		cout<<"1.Mentah "<<endl;
+		cout<<"2.Semi mentah"<<endl;
+		cin>>padat;
+		if(padat=1){
+			waktu=(panas*5*60)+180;
+		}
+		else if(padat=2){
+		waktu=panas*5*60+60;
+		}
+	}
+	else if(opsi2=2){
+		waktu=panas*5*60;
+	}
+	else{
+		cout<<"Pilihannya hanya dua saja";
+	}
+	cout<<"================================================="<<endl;
+	cout<<"Masukkan tingkat kepanasan : "<<endl;
+	cout<<"1.Tinggi"<<endl;
+	cout<<"2.Rendah"<<endl;
+	cin>>panas;
+	cout<<"Hitung mundur hingga air fryer dimatikan : "<<endl;
+	for(waktu;waktu>=0;waktu--){
+		cout<<waktu<<"Detik"<<endl;
+		sleep(1);
+	}
+	cout<<"=====Air Fryer Dimatikan=====";
+	
+}
